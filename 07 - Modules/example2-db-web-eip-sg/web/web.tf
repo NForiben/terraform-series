@@ -1,6 +1,7 @@
 resource "aws_instance" "web" {
     ami = data.aws_ami.amzlinux2.id
     instance_type = "t2.micro"
+    key_name = "awskey"
     security_groups = [module.sg.sg_name]
     user_data = file("./web/server-script.sh")
     tags = {
